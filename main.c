@@ -8,6 +8,7 @@ int main()
     uint32_t Choice = 0;
     uint32_t Middle = 0;
     uint32_t Length = 0;
+    uint32_t Counter = 0;
     while (1)
     {
         printf("====================================\n");
@@ -45,7 +46,9 @@ int main()
                 break;
 
             case 6:
-                Rotate_Singly_Linked_List(&List, 2);
+                printf("print how many nodes you want to rotate: ");
+                scanf("%i",&Counter);
+                Rotate_Singly_Linked_List(&List, Counter);
                 break;
 
             case 8:
