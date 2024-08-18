@@ -130,15 +130,15 @@ void Rotate_Singly_Linked_List (Node_t **ListHead, uint32_t K)
     uint32_t List_Length = Get_List_Length(*ListHead);
     uint32_t Counter = K;
     /* Make Circular Singly_Linked_List */
-    Node_t *Node_List_Counter = *ListHead;
+    Node_t *Current = *ListHead;
     Node_t *Temp_Node = *ListHead;
     /* Reach to the Last Node */
-    while (NULL != Node_List_Counter->Node_Link)
+    while (NULL != Current->Node_Link)
     {
-        Node_List_Counter = Node_List_Counter->Node_Link;
+        Current = Current->Node_Link;
     }
     /* Linking the Last Node with with the First Node */
-    Node_List_Counter->Node_Link = *ListHead;
+    Current->Node_Link = *ListHead;
     
     /* Check if the K or the number of List Head moves is less than the List Length */
     if (K < List_Length)
@@ -158,7 +158,7 @@ void Rotate_Singly_Linked_List (Node_t **ListHead, uint32_t K)
     /* Change the Last Node Position to Solve the problem of infinite loop */
     while (Counter--)
     {
-        Node_List_Counter = Node_List_Counter->Node_Link;
+        Current = Current->Node_Link;
     }
-    Node_List_Counter->Node_Link = NULL;
+    Current->Node_Link = NULL;
 }
