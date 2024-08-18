@@ -127,38 +127,46 @@ void Display_List_Elements (Node_t *ListHead)
  */
 void Rotate_Singly_Linked_List (Node_t **ListHead, uint32_t K)
 {
-    uint32_t List_Length = Get_List_Length(*ListHead);
-    uint32_t Counter = K;
-    /* Make Circular Singly_Linked_List */
-    Node_t *Current = *ListHead;
-    Node_t *Temp_Node = *ListHead;
-    /* Reach to the Last Node */
-    while (NULL != Current->Node_Link)
+    if (NULL != (*ListHead))
     {
-        Current = Current->Node_Link;
-    }
-    /* Linking the Last Node with with the First Node */
-    Current->Node_Link = *ListHead;
-    
-    /* Check if the K or the number of List Head moves is less than the List Length */
-    if (K < List_Length)
-    {
-        /* Looping Until the New ListHead */
-        while (K--)
+        uint32_t List_Length = Get_List_Length(*ListHead);
+        uint32_t Counter = K;
+        /* Make Circular Singly_Linked_List */
+        Node_t *Current = *ListHead;
+        Node_t *Temp_Node = *ListHead;
+        /* Reach to the Last Node */
+        while (NULL != Current->Node_Link)
         {
-            (*ListHead) = Temp_Node->Node_Link;
-            Temp_Node = Temp_Node->Node_Link;
-        }    
+            Current = Current->Node_Link;
+        }
+        /* Linking the Last Node with with the First Node */
+        Current->Node_Link = *ListHead;
+        
+        /* Check if the K or the number of List Head moves is less than the List Length */
+        if (K < List_Length)
+        {
+            /* Looping Until the New ListHead */
+            while (K--)
+            {
+                (*ListHead) = Temp_Node->Node_Link;
+                Temp_Node = Temp_Node->Node_Link;
+            }    
+        }
+        /* K is equal or greater than List Length */
+        else
+        {
+            printf(" Invalid K Value you Cannot Rotate %i Times \n",K);
+        }
+        /* Change the Last Node Position to Solve the problem of infinite loop */
+        while (Counter--)
+        {
+            Current = Current->Node_Link;
+        }
+        Current->Node_Link = NULL;
     }
-    /* K is equal or greater than List Length */
     else
     {
-        printf(" Invalid K Value you Cannot Rotate %i Times \n",K);
+        printf("Error !! The List is empty !!\n");
     }
-    /* Change the Last Node Position to Solve the problem of infinite loop */
-    while (Counter--)
-    {
-        Current = Current->Node_Link;
-    }
-    Current->Node_Link = NULL;
+    
 }
