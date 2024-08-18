@@ -21,5 +21,11 @@ uint32_t Get_List_Length (Node_t *List);
 uint32_t Print_Middle_of_linked_list(Node_t *List);
 void Reverse_Singly_Linked_List (Node_t **ListHead);
 void Display_List_Elements (Node_t *ListHead);
+/**
+ * @brief  Rotate Single Linked List and Change the List Head or Start Pointer by moving K nodes
+ * @param  ListHead  Double Pointer to the List Head --> Double Pointer to change in the content of List Head Pointer
+ * @param  K  Variable to Move the List Head K Times
+ * @retval  Void Function
+ */
 void Rotate_Singly_Linked_List (Node_t **ListHead, uint32_t K);
 #endif
