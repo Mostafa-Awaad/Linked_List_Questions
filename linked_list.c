@@ -229,6 +229,12 @@ sint32_t Find_Nth_term (Node_t *ListHead, uint32_t N)
     return Nth_term;
 }
 
+/**
+ * @brief  Delete last occurrence of an item from linked list
+ * @param  ListHead  Double Pointer to the List Head --> Double Pointer to change in the content of List Head Pointer in case of first node
+ * @param  Num  Item to search about its last occurrence
+ * @retval  Void Function
+ */
 void Delete_Last_Occur (Node_t **ListHead, uint32_t Num)
 {
     Node_t *Temp_Node = *ListHead;
