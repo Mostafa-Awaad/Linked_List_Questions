@@ -65,6 +65,11 @@ uint32_t Print_Middle_of_linked_list(Node_t *List)
     {
         printf("Error!! The Linked List is Empty \n");
     }
+    else if (List_Length == 1)
+    {
+        printf("List has only one element which is %i -> NULL\n",List->Node_Data);
+    }
+    
     else
     {
         Node_List_Counter = List;
@@ -241,7 +246,7 @@ void Delete_Last_Occur (Node_t **ListHead, uint32_t Num)
     Node_t *Last_Occur = NULL;
 
     /* Traversing to get the last occurrence */
-    while (NULL != (Temp_Node->Node_Link))
+    while (NULL != Temp_Node)
     {
         if (Num == (Temp_Node->Node_Data))
         {
@@ -266,11 +271,11 @@ void Delete_Last_Occur (Node_t **ListHead, uint32_t Num)
     /* In case of the Last Occurrence is the First Node*/
     else if (Last_Occur == *ListHead)
     {
-        Node_t *Temp_Node2 = NULL;
-        Temp_Node2 = *ListHead;
-        *ListHead = (*ListHead)->Node_Link;
-        free(Temp_Node2);
-        Temp_Node2 = NULL;
+        Node_t *Temp_Node0 = (*ListHead);
+        Node_t *Temp_Node2 = (*ListHead)->Node_Link;
+        (*ListHead) = Temp_Node2;
+        free(Temp_Node0);
+        Temp_Node0 = NULL;
     }
     else
     {
