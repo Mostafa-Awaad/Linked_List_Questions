@@ -11,6 +11,7 @@ int main()
     uint32_t Counter = 0;
     uint32_t Node_No = 0;
     uint32_t Printed_Data = 0;
+    uint32_t Num = 0;
     while (1)
     {
         printf("====================================\n");
@@ -21,7 +22,8 @@ int main()
         printf("-> 5) Display_All_Nodes\n");
         printf("-> 6) Rotate_Singly_Linked_List\n");
         printf("-> 7) Find_Nth_Term From Last Node\n");
-        printf("-> 8) Exit the Program\n");
+        printf("-> 8) Delete_Item_Last_Occur\n");
+        printf("-> 9) Exit the Program\n");
         printf("====================================\n");
         printf("Choose the kind of operation on the Linked List: ");
         scanf("%i",&Choice);
@@ -63,6 +65,11 @@ int main()
                 break;
 
             case 8:
+                printf("Print the Number to delete its Last occurrence: ");
+                scanf("%i",&Num);
+                Delete_Last_Occur(&List, Num);
+                break;
+            case 9:
                 exit(1);
                 break;
             default:
