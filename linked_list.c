@@ -228,3 +228,54 @@ sint32_t Find_Nth_term (Node_t *ListHead, uint32_t N)
     }
     return Nth_term;
 }
+
+void Delete_Last_Occur (Node_t **ListHead, uint32_t Num)
+{
+    Node_t *Temp_Node = *ListHead;
+    Node_t *Last_Occur = NULL;
+
+    /* Traversing to get the last occurrence */
+    while (NULL != (Temp_Node->Node_Link))
+    {
+        if (Num == (Temp_Node->Node_Data))
+        {
+            Last_Occur = Temp_Node;
+        }
+        else{/* Nothing */}
+        Temp_Node = Temp_Node->Node_Link;
+    }
+
+    /* In Case of the Last Occurence is the last Node*/
+    if ((Last_Occur != NULL) && ((Last_Occur->Node_Link) == NULL))
+    {
+        Temp_Node = *ListHead;
+        while (Temp_Node->Node_Link != Last_Occur)
+        {
+            Temp_Node = Temp_Node->Node_Link;
+        }
+        Temp_Node->Node_Link = NULL;
+        free(Last_Occur);
+        Last_Occur = NULL;
+    }
+    /* In case of the Last Occurrence is the First Node*/
+    else if (Last_Occur == *ListHead)
+    {
+        Node_t *Temp_Node2 = NULL;
+        Temp_Node2 = *ListHead;
+        *ListHead = (*ListHead)->Node_Link;
+        free(Temp_Node2);
+        Temp_Node2 = NULL;
+    }
+    else
+    {
+        Temp_Node = *ListHead;
+        while (Temp_Node->Node_Link != Last_Occur)
+        {
+            Temp_Node = Temp_Node->Node_Link;
+        }
+        Temp_Node->Node_Link = Last_Occur->Node_Link;
+        free(Last_Occur);
+        Last_Occur = NULL;
+    }
+    
+}
