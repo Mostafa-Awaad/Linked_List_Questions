@@ -42,9 +42,14 @@ void Rotate_Singly_Linked_List (Node_t **ListHead, uint32_t K);
  * @retval  uint32_t  The data of the N-th node from the end of the list.
  *                   If the list is empty, the function returns 0.
  * 
- * @note   The function assumes that N is a valid position within the list (i.e., 
- *         N should not be greater than the length of the list). If N is greater
- *         than the list length, the behavior is undefined.
  */
 sint32_t Find_Nth_term (Node_t *ListHead, uint32_t N);
+
+/**
+ * @brief  Delete last occurrence of an item from linked list
+ * @param  ListHead  Double Pointer to the List Head --> Double Pointer to change in the content of List Head Pointer in case of first node
+ * @param  Num  Item to search about its last occurrence
+ * @retval  Void Function
+ */
+void Delete_Last_Occur (Node_t **ListHead, uint32_t Num);
 #endif
