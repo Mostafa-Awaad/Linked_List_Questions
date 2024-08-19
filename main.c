@@ -9,6 +9,8 @@ int main()
     uint32_t Middle = 0;
     uint32_t Length = 0;
     uint32_t Counter = 0;
+    uint32_t Node_No = 0;
+    uint32_t Printed_Data = 0;
     while (1)
     {
         printf("====================================\n");
@@ -18,6 +20,7 @@ int main()
         printf("-> 4) Reverse Singly Linked List\n");
         printf("-> 5) Display_All_Nodes\n");
         printf("-> 6) Rotate_Singly_Linked_List\n");
+        printf("-> 7) Find_Nth_Term From Last Node\n");
         printf("-> 8) Exit the Program\n");
         printf("====================================\n");
         printf("Choose the kind of operation on the Linked List: ");
@@ -49,6 +52,14 @@ int main()
                 printf("print how many nodes you want to rotate: ");
                 scanf("%i",&Counter);
                 Rotate_Singly_Linked_List(&List, Counter);
+                
+                break;
+            
+            case 7:
+                printf("Nth Node you want to Print: ");
+                scanf("%i",&Node_No);
+                Printed_Data= Find_Nth_term(List, Node_No);
+                printf("Nth Term = %i \n", Printed_Data);
                 break;
 
             case 8:

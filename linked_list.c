@@ -170,3 +170,61 @@ void Rotate_Singly_Linked_List (Node_t **ListHead, uint32_t K)
     }
     
 }
+
+/**
+ * @brief  Finds the N-th term from the end of a singly linked list.
+ * 
+ * This function calculates the position of the N-th node from the end of a given
+ * singly linked list and returns its data. If the list is empty, the function returns 0.
+ * 
+ * @param  ListHead  A pointer to the head of the singly linked list.
+ * @param  N         The position from the end of the list whose data is to be retrieved.
+ *                   It is expected that 1 <= N <= length of the list.
+ * 
+ * @retval  uint32_t  The data of the N-th node from the end of the list.
+ *                   If the list is empty, the function returns 0.
+ * 
+ * @note   The function assumes that N is a valid position within the list (i.e., 
+ *         N should not be greater than the length of the list). If N is greater
+ *         than the list length, the behavior is undefined.
+ */
+sint32_t Find_Nth_term (Node_t *ListHead, uint32_t N)
+{
+    return_status_t ret_status = R_NOK;
+    uint32_t List_Length = Get_List_Length(ListHead);
+    uint32_t Nth_term = 1;  // Initialize N-th term with a default value (1)
+    if (N <= List_Length)
+    {
+        ret_status = R_OK;
+        
+        Node_t *Node_List_Counter = ListHead;  // Pointer to traverse the list
+
+        if (NULL != ListHead)  // Check if the list is not empty
+        {
+            /* Modify the N to be able to reach the Target Node from the List Head */
+            N = (List_Length - N) + 1;
+
+            // Traverse the list until reaching the target node
+            while (N>1)
+            {
+                Node_List_Counter = Node_List_Counter->Node_Link;
+                N--;
+            }
+            // Store the data of the target node in Nth_term
+            Nth_term = Node_List_Counter->Node_Data;
+        }
+        else
+        {
+            // If the list is empty, set Nth_term to 0
+            Nth_term = 0;
+        }
+    
+    }
+    else
+    {
+        printf("Undefined behaviour!! You entered value greater than List Length\n");
+        
+        Nth_term = -1;
+    }
+    return Nth_term;
+}

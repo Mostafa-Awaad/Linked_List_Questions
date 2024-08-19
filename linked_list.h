@@ -28,4 +28,23 @@ void Display_List_Elements (Node_t *ListHead);
  * @retval  Void Function
  */
 void Rotate_Singly_Linked_List (Node_t **ListHead, uint32_t K);
+
+/**
+ * @brief  Finds the N-th term from the end of a singly linked list.
+ * 
+ * This function calculates the position of the N-th node from the end of a given
+ * singly linked list and returns its data. If the list is empty, the function returns 0.
+ * 
+ * @param  ListHead  A pointer to the head of the singly linked list.
+ * @param  N         The position from the end of the list whose data is to be retrieved.
+ *                   It is expected that 1 <= N <= length of the list.
+ * 
+ * @retval  uint32_t  The data of the N-th node from the end of the list.
+ *                   If the list is empty, the function returns 0.
+ * 
+ * @note   The function assumes that N is a valid position within the list (i.e., 
+ *         N should not be greater than the length of the list). If N is greater
+ *         than the list length, the behavior is undefined.
+ */
+sint32_t Find_Nth_term (Node_t *ListHead, uint32_t N);
 #endif
